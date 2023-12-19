@@ -48,3 +48,17 @@ header{
     height: 38px;
     
 }
+
+.nossaEquipe{
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Inter";
+    font-size: 12px;
+    align-items: center;
+    width: 100px;
+    height: 15px;
+}
+
+.menu-btn{
+    display: none;
+}
