@@ -71,6 +71,9 @@ header{
 /* --------- parte dos preços ---------*/
 .precos{
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
     flex-direction: row;
     width: 100%;   
@@ -86,7 +89,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 173px;
+    margin-left: 40px;
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -149,11 +152,13 @@ h2{
 /*---------- Parte do conversor ----------*/
 .conversor{
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
 
 }
 .conversorTitulo{
     display: flex;
+    grid-column: 1 / -1;
     text-align: center;
     justify-content: center;
     align-items: center;
@@ -174,6 +179,8 @@ h2{
     grid-template-rows: 1fr 1fr;
     width: 453px;
     gap:42px;
+    margin-left: 150px;
+    margin-bottom: 70px;
 }
 select{
     background: #dfe7ff;
@@ -216,6 +223,27 @@ option{
     font-weight: 400;
     line-height: normal;
     text-transform: capitalize;
+}
+
+.inputs{
+    /*position: relative;*/
+    font-family: Poppins;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 453px;
+    gap:42px;
+    margin-left: 300px;
+    margin-bottom: 70px;
+}
+input{
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    border-radius: 5px;
 }
 
 /*------------- Footer ----------------*/
