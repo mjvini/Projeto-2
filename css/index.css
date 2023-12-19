@@ -62,3 +62,62 @@ header{
 .menu-btn{
     display: none;
 }
+
+/*------------ Corpo -----------------*/
+.container-corpo{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    background-color: #878787;
+    grid-area: container-corpo;
+}
+
+
+/*------------- Footer ----------------*/
+
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background: #440F01;
+   
+    grid-area: footer;
+}
+
+.oferecimento{
+    display: flex;
+    flex-direction: row;
+    width: 313px;
+    height: 30px;
+    justify-content: space-between;
+}
+
+.promove{
+    color: #ffffff;
+    text-align: center;
+    font-family: LED Dot-Matrix;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    
+}
+.ic{
+    color: #ffffff;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+
+
+/*-------------- Celular --------------*/
+
