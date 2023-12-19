@@ -8,19 +8,18 @@ html {
     margin: 0;
     padding: 0;
     text-decoration: none;
-    /*height: 100%;*/
 }
 
 
 body{
     display: grid;
-    grid-template-rows: 1fr auto 2fr;
+    grid-template-rows: auto 1fr auto;
     min-height: 100vh;
     grid-template-areas:
     "header"
-    "container-corpo"
+    "corpo"
     "footer";
-    /*background-color: #FDBE33;*/
+    background-color: #878787;
 }
 
 
@@ -41,7 +40,6 @@ header{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    font-family: "honeyfont";
     color: #ffffff;
     margin-left: 10px;
     width: 152px;
@@ -59,26 +57,172 @@ header{
     height: 15px;
 }
 
-.menu-btn{
-    display: none;
-}
 
 /*------------ Corpo -----------------*/
-.container-corpo{
+.corpo{
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr auto;
     width: 100%;
     height: 100%;
-    overflow-y: auto;
+    /*overflow-y: auto;*/
     background-color: #878787;
-    grid-area: container-corpo;
+    grid-area: corpo;
+}
+/* --------- parte dos preços ---------*/
+.precos{
+    display: flex;
+    flex-shrink: 0;
+    flex-direction: row;
+    width: 100%;   
+    height: 98px;
+    background-color:#440F01;
+}
+.Dolar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 231px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #E9AD03;
+    margin-left: 173px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+}
+.Euro{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 231px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #E9AD03;
+    margin-left: 76px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
 }
 
+.Peso{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 231px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #E9AD03;
+    margin-left: 76px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+}
+
+.BTC{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 231px;
+    height: 90px;
+    flex-shrink: 0;
+    background-color: #E9AD03;
+    margin-left: 76px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+}
+
+h2{
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: uppercase;
+}
+/*---------- Parte do conversor ----------*/
+.conversor{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+
+}
+.conversorTitulo{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.Titulo{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+}
+.moedas{
+    position: relative;
+    font-family: Poppins;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    width: 453px;
+    gap:42px;
+}
+select{
+    background: #dfe7ff;
+    color:#000000;
+    display: inline-flex;
+    height: 91px;
+    padding: 23px 19px 22px 46px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 19px;
+    flex-shrink: 0;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    border-radius: 5px;
+    
+}
+
+select.select-arrow-active {
+    content: '\25BC'; /* Código Unicode para a seta para baixo */
+    font-size: 16px; /* Tamanho da fonte da seta */
+    color: #333; /* Cor da seta */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Garante que a seta não seja clicável */
+}
+
+option{
+    width: 324px;
+    height: 37px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+}
 
 /*------------- Footer ----------------*/
 
 footer{
     width: 100%;
+    height: 140px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -121,3 +265,11 @@ footer{
 
 /*-------------- Celular --------------*/
 
+@media only screen and (max-width: 768px){
+
+    /*----- Header ----*/
+
+    .logoTitulo{
+        font-size: larger;
+    }
+}
