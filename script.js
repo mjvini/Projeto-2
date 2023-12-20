@@ -11,7 +11,9 @@ async function getMoedas(){
     return [dataArr, keysArr]
 }
 
-// retorna a taxa de conversão das moedas
+
+
+/*// retorna a taxa de conversão das moedas
 async function getTaxaConversao(moeda1, moeda2){
     const url = 'https://economia.awesomeapi.com.br/last/'+ moeda1 + '-' + moeda2
 
@@ -20,7 +22,29 @@ async function getTaxaConversao(moeda1, moeda2){
 
     //retorna valor de compra
     return data[moeda1+moeda2]['bid']
+}*/
+
+async function getTaxaConversao(moeda1, moeda2) {
+    const url = 'https://economia.awesomeapi.com.br/last/' + moeda1 + '-' + moeda2;
+
+
+        const resposta = await fetch(url);
+
+        // Verifica se a resposta é bem-sucedida (código de status 2xx)
+        if (!resposta.ok) {
+            // Se não for, lança uma exceção com o código de status
+            return "Combinação não disponivel";
+        }
+
+        const data = await resposta.json();
+
+        // Retorna valor de compra
+        return data[moeda1 + moeda2]['bid'];
+
+    
+    
 }
+
 
 // retorna as moedas selecionadas 
 function getMoedasSelecionadas(){
@@ -72,21 +96,30 @@ async function adicionaMoedas(dataArr){
         }   
     }
 
-async function loop(){
-    console.log('funciona')
-
-    moedas = getMoedasSelecionadas()
-    moeda1 = moedas[0]
-    moeda2 = moedas[1]
-
-    taxa = await getTaxaConversao(moeda1, moeda2)
-    console.log(taxa)
-
-    valor = getValorInserido()
-
-    valorConvertido = converte(valor, taxa)
-    atualizaValorConvertido(valorConvertido)
-}
+    async function loop() {
+        console.log('funciona');
+    
+        moedas = getMoedasSelecionadas();
+        moeda1 = moedas[0];
+        moeda2 = moedas[1];
+    
+        taxa = await getTaxaConversao(moeda1, moeda2);
+        
+        // Verifica se a taxa não é um número
+        if (isNaN(taxa)) {
+            console.error('A taxa de conversão não é um número válido.');
+            valorConvertido = taxa; // Atribui diretamente o valor da taxa
+        } else {
+            console.log(taxa);
+    
+            valor = getValorInserido();
+    
+            valorConvertido = converte(valor, taxa);
+        }
+    
+        atualizaValorConvertido(valorConvertido);
+    }
+    
 
 window.onload = function(){
     dataArr = getMoedas()
