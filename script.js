@@ -88,8 +88,32 @@ async function loop(){
     atualizaValorConvertido(valorConvertido)
 }
 
+async function atualizaHeader(){
+    taxaDolar = await getTaxaConversao('USD', 'BRL')
+    taxaEuro = await getTaxaConversao('EUR', 'BRL')
+    taxaPeso = await getTaxaConversao('ARS', 'BRL')
+    taxaBitcoin = await getTaxaConversao('BTC', 'BRL')
+    
+    let dolar = document.getElementById('Dolar')
+    let euro = document.getElementById('Euro')
+    let peso = document.getElementById('Peso')
+    let btc = document.getElementById('BTC')
+    
+    dolar.innerHTML = 'DOLAR R$'+ taxaDolar
+    euro.innerHTML = 'EURO R$'+ taxaEuro
+    peso.innerHTML = 'PESO R$'+ taxaPeso
+    btc.innerHTML = 'BTC R$'+ taxaBitcoin
+    
+    console.log(taxaDolar)
+    console.log(taxaEuro)
+    console.log(taxaPeso)
+    console.log(taxaBitcoin)
+}
+
 window.onload = function(){
     dataArr = getMoedas()
     adicionaMoedas(dataArr)
     
+    atualizaHeader()
+    setInterval(atualizaHeader, 30000)
 }
