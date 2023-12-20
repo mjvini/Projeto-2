@@ -24,38 +24,34 @@
     <div class="corpo">
         <div class="precos">
             <div class="Dolar">
-                <h2>Dolar R$</h2>
+                <h2 id="Dolar"> Dolar R$</h2>
             </div>
             <div class="Euro">
-                <h2>Euro R$</h2>
+                <h2 id="Euro"> Euro R$</h2>
             </div>
             <div class="Peso">
-                <h2>Peso R$</h2>
+                <h2 id="Peso"> Peso R$</h2>
             </div>
             <div class="BTC">
-                <h2>BTC R$</h2>
+                <h2 id="BTC"> BTC R$</h2>
             </div>
         </div>
 
         <div class="conversor">
             <div class="conversorTitulo">
-                <h1 class="Titulo">Conversor De Moedas</h1>
+                <h1 class="Titulo">Conversosr De Moedas</h1>
             </div>
-            <div class="conversorCalc">
             <div class="moedas">
-                <div class="moedasSeletores">
                 <select class="moedaLocal" id="moedaLocal" onchange="loop()">
 
                 </select>
                 <select class="moedasConversao" id="moedasConversao" onchange="loop()">
 
                 </select>
-                </div>
             </div>
             <div class="inputs">
                 <input class="caixaValor" type="text" id="inputValor" placeholder="$" oninput="loop()">
                 <p class="caixaValor" id="valorConvertido"></p>
-            </div>
             </div>
         </div>
     </div>
