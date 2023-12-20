@@ -61,7 +61,9 @@ header{
 /*------------ Corpo -----------------*/
 .corpo{
     display: grid;
-    grid-template-rows: 1fr auto;
+    /*grid-template-rows: 1fr auto;*/
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 8fr;
     width: 100%;
     height: 100%;
     /*overflow-y: auto;*/
@@ -80,6 +82,14 @@ header{
     height: 98px;
     background-color:#440F01;
 }
+
+.precosItens{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px
+    
+}
 .Dolar{
     display: flex;
     flex-direction: column;
@@ -89,7 +99,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -103,7 +113,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 76px;
+    /*margin-left: 76px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -118,7 +128,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 76px;
+    /*margin-left: 76px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -133,7 +143,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 76px;
+    /*margin-left: 76px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -149,11 +159,15 @@ h2{
     line-height: normal;
     text-transform: uppercase;
 }
+.celular{
+    display: none;
+}
+
 /*---------- Parte do conversor ----------*/
 .conversor{
     display: grid;
-    grid-template-rows: auto 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    /*grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr 1fr;*/
 
 }
 .conversorTitulo{
@@ -162,6 +176,15 @@ h2{
     text-align: center;
     justify-content: center;
     align-items: center;
+}
+.conversorCalc{
+    /*display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 2fr;
+    width: 100%;*/
+    display: flex;
+    justify-content: center;
+
 }
 .Titulo{
     color: #FFF;
@@ -175,12 +198,20 @@ h2{
 .moedas{
     position: relative;
     font-family: Poppins;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    /*grid-template-rows: 1fr 1fr;*/
     width: 453px;
-    gap:42px;
+    /*gap:42px;
     margin-left: 150px;
-    margin-bottom: 70px;
+    margin-bottom: 70px;*/
+}
+
+.moedasSeletores{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 42px;
 }
 select{
     background: #dfe7ff;
@@ -228,9 +259,12 @@ option{
 .inputs{
     /*position: relative;*/
     font-family: Poppins;
-    display: grid;
-    grid-template-rows: 1fr 1fr;
+    /*display: grid;
+    grid-template-rows: 1fr 1fr;*/
+    display: flex;
+    flex-direction: column;
     width: 453px;
+    
     gap:42px;
     margin-left: 300px;
     margin-bottom: 70px;
@@ -244,7 +278,30 @@ input{
     line-height: normal;
     text-transform: capitalize;
     border-radius: 5px;
+    height: 91px;
 }
+
+.caixaValor{
+    width: 453px;
+    height: 91px;
+    color: #000;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-transform: capitalize;
+    border-radius: 5px;
+    height: 91px;
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+
+
+
 
 /*------------- Footer ----------------*/
 
@@ -296,13 +353,50 @@ footer{
 @media only screen and (max-width: 768px){
 
     /*----- Header ----*/
-    header{
-        width: 768px;
+    .corpo {
+        grid-template-rows: auto;
+        
+      }
+    
+      
+    .precos {
+        flex-direction: row; 
+        /*height: auto; */
+        margin-left: 0; 
     }
-    .logoTitulo{
-        font-size: larger;
+    .Dolar, .Euro, .BTC, .Peso{
+        width: auto;
+        height: 50px;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    h2{
+        display: none;
+    }
+
+    .celular{
+        display: flex;
+        flex-direction: row;
+        font-size: small;
+        font-style: normal;
+        font-weight: auto;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+      /* Ajustes específicos para o conversor */
+    .conversorCalc {
+        flex-direction: column; /* Mude para uma coluna em telas menores */
+        gap:20px;
     }
     
-    .corpo{display: none;}
-    footer{display: none;}
+      /* Ajustes específicos para os seletores de moeda */
+    .moedasSeletores {
+        margin-left: 0; /* Remove a margem esquerda ou ajusta conforme necessário */
+    }
+    
+      /* Ajustes específicos para os inputs */
+    .inputs {
+        margin-left: 0; /* Remove a margem esquerda ou ajusta conforme necessário */
+    }
 }
