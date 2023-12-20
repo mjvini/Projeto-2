@@ -12,25 +12,15 @@ async function getMoedas(){
 }
 
 // retorna a taxa de conversão das moedas
-async function getTaxaConversao(moeda1, moeda2) {
-    const url = 'https://economia.awesomeapi.com.br/last/' + moeda1 + '-' + moeda2;
+async function getTaxaConversao(moeda1, moeda2){
+    const url = 'https://economia.awesomeapi.com.br/last/'+ moeda1 + '-' + moeda2
 
+    const resposta = await fetch(url)
+    const data = await resposta.json()
 
-        const resposta = await fetch(url);
-
-        // Verifica se a resposta é bem-sucedida (código de status 2xx)
-        if (!resposta.ok) {
-            // Se não for, lança uma exceção com o código de status
-            return "Combinação não disponivel";
-        }
-
-        const data = await resposta.json();
-
-        // Retorna valor de compra
-        return data[moeda1 + moeda2]['bid'];  
-    
+    //retorna valor de compra
+    return data[moeda1+moeda2]['bid']
 }
-
 
 // retorna as moedas selecionadas 
 function getMoedasSelecionadas(){
@@ -89,19 +79,12 @@ async function loop(){
     moeda1 = moedas[0]
     moeda2 = moedas[1]
 
-    taxa = await getTaxaConversao(moeda1, moeda2);
+    taxa = await getTaxaConversao(moeda1, moeda2)
+    console.log(taxa)
 
-    // Verifica se a taxa não é um número
-    if (isNaN(taxa)) {
-        console.error('A taxa de conversão não é um número válido.');
-        valorConvertido = taxa; // Atribui diretamente o valor da taxa
-    } else {
-        console.log(taxa);
+    valor = getValorInserido()
 
-        valor = getValorInserido();
-
-        valorConvertido = converte(valor, taxa);
-    }
+    valorConvertido = converte(valor, taxa)
     atualizaValorConvertido(valorConvertido)
 }
 
@@ -121,16 +104,6 @@ async function atualizaHeader(){
     peso.innerHTML = 'PESO R$'+ taxaPeso
     btc.innerHTML = 'BTC R$'+ taxaBitcoin
     
-    let dolar2 = document.getElementById('Dolar2')
-    let euro2 = document.getElementById('Euro2')
-    let peso2 = document.getElementById('Peso2')
-    let btc2 = document.getElementById('BTC2')
-    
-    dolar2.innerHTML = 'US R$'+ taxaDolar
-    euro2.innerHTML = 'EUR \n R$'+ taxaEuro
-    peso2.innerHTML = 'ARS R$'+ taxaPeso
-    btc2.innerHTML = 'BTC R$'+ taxaBitcoin
-
     console.log(taxaDolar)
     console.log(taxaEuro)
     console.log(taxaPeso)

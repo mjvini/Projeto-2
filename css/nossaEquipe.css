@@ -162,7 +162,9 @@ header{
     .corpo{
         height: auto;
     }
-    
+    .logoTitulo{
+        font-size: larger;
+    }
     .titulo{
         font-size: 36px;
         margin-top: 60px;

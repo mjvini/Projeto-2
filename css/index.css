@@ -82,6 +82,14 @@ header{
     height: 98px;
     background-color:#440F01;
 }
+
+.precosItens{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px
+    
+}
 .Dolar{
     display: flex;
     flex-direction: column;
@@ -91,7 +99,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 40px;
+    /*margin-left: 40px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -105,7 +113,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 76px;
+    /*margin-left: 76px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -120,7 +128,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 76px;
+    /*margin-left: 76px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -135,7 +143,7 @@ header{
     height: 90px;
     flex-shrink: 0;
     background-color: #E9AD03;
-    margin-left: 76px;
+    /*margin-left: 76px;*/
     margin-top: 4px;
     margin-bottom: 4px;
 
@@ -151,6 +159,10 @@ h2{
     line-height: normal;
     text-transform: uppercase;
 }
+.celular{
+    display: none;
+}
+
 /*---------- Parte do conversor ----------*/
 .conversor{
     display: grid;
@@ -341,13 +353,50 @@ footer{
 @media only screen and (max-width: 768px){
 
     /*----- Header ----*/
-    header{
-        width: 768px;
+    .corpo {
+        grid-template-rows: auto;
+        
+      }
+    
+      
+    .precos {
+        flex-direction: row; 
+        /*height: auto; */
+        margin-left: 0; 
     }
-    .logoTitulo{
-        font-size: larger;
+    .Dolar, .Euro, .BTC, .Peso{
+        width: auto;
+        height: 50px;
+        margin-left: auto;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+    h2{
+        display: none;
+    }
+
+    .celular{
+        display: flex;
+        flex-direction: row;
+        font-size: small;
+        font-style: normal;
+        font-weight: auto;
+        line-height: normal;
+        text-transform: uppercase;
+    }
+      /* Ajustes específicos para o conversor */
+    .conversorCalc {
+        flex-direction: column; /* Mude para uma coluna em telas menores */
+        gap:20px;
     }
     
-    .corpo{display: none;}
-    footer{display: none;}
+      /* Ajustes específicos para os seletores de moeda */
+    .moedasSeletores {
+        margin-left: 0; /* Remove a margem esquerda ou ajusta conforme necessário */
+    }
+    
+      /* Ajustes específicos para os inputs */
+    .inputs {
+        margin-left: 0; /* Remove a margem esquerda ou ajusta conforme necessário */
+    }
 }
